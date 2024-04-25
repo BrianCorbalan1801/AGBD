@@ -5,11 +5,12 @@ where salary < 6000
 
 /*Actividad 2*/
 
-
+SELECT first_name, last_name, department_name, city, state_province FROM employees, departments, locations
 
 /*Actividad 3*/
 
-
+SELECT e.first_name, m.first_name FROM employees e JOIN employees m ON e.employee_id = m.manager_id
+ORDER BY m.manager_id 
 
 /*Actividad 4*/
 
