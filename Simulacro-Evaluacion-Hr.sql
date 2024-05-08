@@ -10,7 +10,9 @@ ORDER by salary DESC
 
 --Actividad 3--
 
-
+SELECT job_title, min_salary, max_salary FROM jobs
+WHERE job_title like '%Manager'
+ORDER by min_salary DESC
 
 --Actividad 4--
 
