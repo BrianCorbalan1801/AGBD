@@ -3,6 +3,7 @@
 -- todos las mujeres de menos de 40 años, 
 -- elegir el orden en que se muestran 
 
-SELECT name, car_model, car_make, plate_number FROM drivers_license d
+SELECT name, gender, age, car_model, car_make, plate_number  FROM drivers_license d
 JOIN person p ON d.id = p.license_id
+WHERE age < "40" AND gender = "female"
 ORDER BY name ASC
