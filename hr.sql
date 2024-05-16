@@ -14,11 +14,15 @@ ORDER BY m.manager_id
 
 /*Actividad 4*/
 
-
+SELECT e.first_name as nombre , e.last_name as apellido , d.first_name as hijos from employees e
+join dependents d on d.employee_id = e.employee_id
+ORDER by hijos ASC
 
 /*Actividad 5*/
 
-
+SELECT e.first_name as nombre, j.max_salary FROM employees 
+JOIN jobs j on b.job_id = j.job_id
+ORDER BY max_salary
 
 /*Actividad 6*/
 
