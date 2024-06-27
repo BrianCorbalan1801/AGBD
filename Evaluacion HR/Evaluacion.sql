@@ -40,7 +40,19 @@ WHERE salary < 8000 AND job_id IN (SELECT job_id FROM jobs WHERE job_title IN ('
 -- trabajo de nombre ‘consultant’. adicionalmente nos envió la información de estos 3 consultores que deben
 -- cargarse perteneciendo a este nuevo departamento y tipo de trabajo: 
 
-
+INSERT INTO departments (department_name, location_id)
+	VALUES ('Consultants', (SELECT location_id FROM locations WHERE city = 'Seattle'))
+	
+INSERT INTO locations (street_address, city, country_id)
+	VALUES ('2004 Charade Rd','Seattle', (SELECT country_id FROM countries WHERE country_name = 'United States of America'))
+	
+INSERT INTO jobs (job_title, min_salary, max_salary)
+	 VALUES ('Consultant', 411, 912)
+	 
+INSERT INTO employees (first_name, last_name, email, phone_number, hire_date, salary, manager_id, job_id, department_id)
+	VALUES ('Raul','Lopez','rlopez@gmail.com','1.231.231.122','2024-06-27',5000,100,(SELECT job_id FROM jobs WHERE job_title = 'Consultant'),(SELECT department_id FROM departments WHERE department_name = 'Consultants')),
+		   ('Andres','Gonzalez','agonzalez@gmail.com','1.231.231.122','2024-06-27',5000,100,(SELECT job_id FROM jobs WHERE job_title = 'Consultant'),(SELECT department_id FROM departments WHERE department_name = 'Consultants')),
+		   ('Laura','Fernandez','lfernandez@gmail.com','1.231.231.122','2024-06-27',5000,100,(SELECT job_id FROM jobs WHERE job_title = 'Consultant'),(SELECT department_id FROM departments WHERE department_name = 'Consultants'))
 
 -- Nos informa que la empresa dejara de prestar operaciones en Canada, por lo que nos solicitan que 
 -- eliminemos todos los empleados, departamentos y locaciones pertenecientes a Canada junto con el pais.
