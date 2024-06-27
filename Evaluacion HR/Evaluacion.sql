@@ -58,6 +58,19 @@ INSERT INTO employees (first_name, last_name, email, phone_number, hire_date, sa
 -- eliminemos todos los empleados, departamentos y locaciones pertenecientes a Canada junto con el pais.
 
 
+DELETE FROM employees
+WHERE department_id IN (SELECT department_id FROM departments WHERE location_id IN ( SELECT location_id FROM locations WHERE country_id = ( SELECT country_id FROM countries WHERE country_name = 'Canada')));
+
+DELETE FROM departments
+WHERE location_id IN (SELECT location_id FROM locations WHERE country_id = (SELECT country_id FROM countries WHERE country_name = 'Canada'));
+
+DELETE FROM locations
+WHERE country_id = (SELECT country_id FROM countries WHERE country_name = 'Canada');
+
+
+DELETE FROM countries
+WHERE country_name = 'Canada';
+
 
 -- Como último requerimiento nos solicitan eliminar todos los trabajos que no posean empleados asociados, 
 -- la query tiene que tener la capacidad de eliminar todos los jobs que no posean empleados en una sola 
