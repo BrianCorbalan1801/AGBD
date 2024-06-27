@@ -22,7 +22,11 @@ JOIN departments ON employees.department_id = departments.department_id;
 -- correo electrónico, número de teléfono y id de departamento. Y que por favor le carguemos momentáneamente 
 -- el numero de la empresa (303.404.505) para evitar tener valores null en esos campos.
 
+SELECT employee_id, first_name, last_name, email, phone_number, department_id FROM employees
+WHERE phone_number IS NULL
 
+UPDATE employees SET phone_number = '303.404.505'
+WHERE phone_number IS NULL
 
 -- Debido a una politica de mejora de sueldos nos solicitan que incrementemos un 35% el salario de todos 
 -- los empleados que cobren menos de 8000 y que trabajen de programadores o empleados de contador (Accountant).
