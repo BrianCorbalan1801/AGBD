@@ -31,6 +31,8 @@ WHERE phone_number IS NULL
 -- Debido a una politica de mejora de sueldos nos solicitan que incrementemos un 35% el salario de todos 
 -- los empleados que cobren menos de 8000 y que trabajen de programadores o empleados de contador (Accountant).
 
+UPDATE employees SET salary = salary * 0.35
+WHERE salary < 8000 AND job_id IN (SELECT job_id FROM jobs WHERE job_title IN ('Programmer', 'Accountant'));
 
 
 -- Nos informan de la creación de un nuevo departamento dentro de la empresa que tendrá el nombre 
