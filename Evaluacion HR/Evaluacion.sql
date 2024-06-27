@@ -11,6 +11,9 @@ ORDER BY num_employees DESC;
 
 -- Nos solicita un listado que contenga nombre, apellido, tipo de trabajo y departamento todos los empleados.
 
+SELECT employees.first_name, employees.last_name, jobs.job_title, departments.department_name FROM employees
+JOIN jobs ON employees.job_id = jobs.job_id
+JOIN departments ON employees.department_id = departments.department_id;
 
 
 -- El encargado del departamento de ventas nos informó que detecto que hay algunos empleados que no poseen 
